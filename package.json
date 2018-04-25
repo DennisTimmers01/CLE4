@@ -19,7 +19,9 @@
     "url": "https://github.com/DennisTimmers01/CLE4/issues"
   },
   "homepage": "https://github.com/DennisTimmers01/CLE4#readme",
-  "dependencies": {},
+  "dependencies": {
+    "phaser-ce": "^2.10.3"
+  },
   "devDependencies": {
     "css-loader": "^0.28.11",
     "html-webpack-plugin": "^3.2.0",
