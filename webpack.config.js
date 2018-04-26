@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.ts',
+  entry: './src/js/index.ts',
 
   output: {
     filename: 'bundle.js',
@@ -32,6 +32,10 @@ module.exports = {
         exclude: /node_modules/
       }
     ]
+  },
+
+  resolve: {
+    extensions: ['.ts', '.js', '.html', '.css']
   },
 
   plugins: [
