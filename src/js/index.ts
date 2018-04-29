@@ -9,7 +9,7 @@ const ready = (): Promise<any> =>
 
 const main = (): void => {
   const element: HTMLElement = document.querySelector('[data-module="Game"]');
-  const game: Game = new Game(element);
+  const game: Game = new Game();
 };
 
 ready().then(main);
