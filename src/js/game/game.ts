@@ -1,36 +1,55 @@
-/**
- * Game
- * @class
- */
+import 'pixi';
+import 'p2';
+import 'phaser';
+
+import Platform from './environment/platform';
+
 class Game {
-  /**
-   * Element that renders the game
-   */
-  private element: HTMLElement;
+  element: HTMLElement;
+  game: Phaser.Game;
+  platforms: any;
+  ground: any;
+  ledge: any;
 
-  /**
-   * @constructor
-   * @param {HTMLElement} element
-   */
-  constructor(element: HTMLElement) {
-    this.element = element;
-
-    this.load();
+  constructor() {
+    this.game = new Phaser.Game(
+      800,
+      600,
+      Phaser.AUTO,
+      'body',
+      {
+        preload: this.preload,
+        create: this.create,
+        update: this.update
+      },
+      false,
+      true,
+      Phaser.Physics.ARCADE
+    );
   }
 
-  /**
-   * Load game
-   */
-  private load() {
-    this.isLoaded();
+  preload() {
+    const { load } = this.game;
+    load.image('sky', './assets/sky.png');
+    load.image('ground', './assets/platform.png');
+    load.image('star', './assets/star.png');
+    load.spritesheet('dude', './assets/dude.png', 32, 48);
   }
 
-  /**
-   * Notify to console if game is loaded
-   */
-  private isLoaded() {
-    console.log('Game is loaded');
+  create() {
+    const { add, world } = this.game;
+    add.sprite(0, 0, 'sky');
+    add.sprite(0, 0, 'star');
+
+    this.platforms = this.game.add.group();
+    this.platforms.enableBody = true;
+
+    Platform.createGround(this.platforms, 0, world.height - 30);
+    Platform.createLedge(this.platforms, 400, 400);
+    Platform.createLedge(this.platforms, -150, 250);
   }
+
+  update() {}
 }
 
 export default Game;
