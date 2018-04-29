@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/DennisTimmers01/CLE4#readme",
   "dependencies": {
-    "phaser-ce": "^2.10.3"
+    "phaser": "^3.6.0"
   },
   "devDependencies": {
     "css-loader": "^0.28.11",

@@ -12,5 +12,5 @@
 
   "exclude": ["node_modules"],
 
-  "files": ["node_modules/phaser-ce/typescript/phaser.d.ts"]
+  "files": ["./types/phaser.d.ts"]
 }
