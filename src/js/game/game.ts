@@ -37,7 +37,7 @@ class Game extends Phaser.Game {
   /**
    * reset the game to it's initial state.
    */
-  restartGame(): void {
+  restart(): void {
     this.state.restart();
   }
 }
