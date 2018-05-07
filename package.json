@@ -1,7 +1,7 @@
 {
   "name": "cle4",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backpack build for phaser by Dennis Timmers",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server",
