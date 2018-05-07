@@ -2,11 +2,11 @@ import 'pixi';
 import 'p2';
 import 'phaser';
 
-import Boot from '../state/Boot';
-import Preload from '../state/Preload';
-import GameTitle from '../state/GameTitle';
-import Main from '../state/Main';
-import GameOver from '../state/GameOver';
+import Boot from './state/Boot';
+import Preload from './state/Preload';
+import GameTitle from './state/GameTitle';
+import Main from './state/Main';
+import GameOver from './state/GameOver';
 
 class Game extends Phaser.Game {
   constructor() {
