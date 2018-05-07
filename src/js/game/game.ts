@@ -9,8 +9,10 @@ import Main from './state/Main';
 import GameOver from './state/GameOver';
 
 class Game extends Phaser.Game {
-  constructor() {
-    super('100%', '100%', Phaser.AUTO, 'body');
+  element: HTMLElement;
+
+  constructor(element: HTMLElement) {
+    super('100%', '100%', Phaser.AUTO, 'body', element);
 
     /**
      * Add states to the game

@@ -8,9 +8,9 @@ const ready = (): Promise<any> =>
         document.addEventListener('DOMContentLoaded', resolve)
       );
 
-const main = (): void => {
+const main = (): Game => {
   const element: HTMLElement = document.querySelector('[data-module="Game"]');
-  const game: Game = new Game();
+  return new Game(element);
 };
 
 ready().then(main);
