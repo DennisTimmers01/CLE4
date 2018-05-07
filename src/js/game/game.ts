@@ -5,14 +5,11 @@ import 'phaser';
 class Game {
   element: HTMLElement;
   game: Phaser.Game;
-  platforms: any;
-  ground: any;
-  ledge: any;
 
   constructor() {
     this.game = new Phaser.Game(
-      800,
-      600,
+      '100%',
+      '100%',
       Phaser.AUTO,
       'body',
       {
