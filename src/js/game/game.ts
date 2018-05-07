@@ -2,32 +2,44 @@ import 'pixi';
 import 'p2';
 import 'phaser';
 
-class Game {
-  element: HTMLElement;
-  game: Phaser.Game;
+import Boot from '../state/Boot';
+import Preload from '../state/Preload';
+import GameTitle from '../state/GameTitle';
+import Main from '../state/Main';
+import GameOver from '../state/GameOver';
 
+class Game extends Phaser.Game {
   constructor() {
-    this.game = new Phaser.Game(
-      '100%',
-      '100%',
-      Phaser.AUTO,
-      'body',
-      {
-        preload: this.preload,
-        create: this.create,
-        update: this.update
-      },
-      false,
-      true,
-      Phaser.Physics.ARCADE
-    );
+    super('100%', '100%', Phaser.AUTO, 'body');
+
+    /**
+     * Add states to the game
+     */
+    this.state.add('Boot', Boot, false);
+    this.state.add('Preload', Preload, false);
+    this.state.add('GameTitle', GameTitle, false);
+    this.state.add('Main', Main, false);
+    this.state.add('GameOver', GameOver, false);
+
+    /**
+     * Start the game
+     */
+    this.init();
   }
 
-  preload() {}
+  /**
+   * Initiate the game.
+   */
+  init(): void {
+    this.state.start('Boot');
+  }
 
-  create() {}
-
-  update() {}
+  /**
+   * reset the game to it's initial state.
+   */
+  restartGame(): void {
+    this.state.restart();
+  }
 }
 
 export default Game;
