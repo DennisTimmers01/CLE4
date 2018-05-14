@@ -3,12 +3,12 @@ import 'phaser';
 class Player extends Phaser.State {
   playerSprite: object;
   player: Phaser.Sprite;
-  playerSpeed: number;
 
   constructor(Game: Phaser.Game) {
     super();
     this.game = Game;
   }
+
   preload() {
     this.playerSprite = this.game.load.image(
       'player',
