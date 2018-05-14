@@ -7,6 +7,7 @@ import Preload from './state/Preload';
 import GameTitle from './state/GameTitle';
 import Main from './state/Main';
 import GameOver from './state/GameOver';
+import Player from './player/player';
 
 class Game extends Phaser.Game {
   element: HTMLElement;
@@ -22,6 +23,7 @@ class Game extends Phaser.Game {
     this.state.add('GameTitle', GameTitle, false);
     this.state.add('Main', Main, false);
     this.state.add('GameOver', GameOver, false);
+    this.state.add('Player', Player, false);
 
     /**
      * Start the game
@@ -33,7 +35,7 @@ class Game extends Phaser.Game {
    * Initiate the game.
    */
   init(): void {
-    this.state.start('Boot');
+    this.state.start('Player');
   }
 
   /**
