@@ -3,7 +3,6 @@ import 'phaser';
 class Level extends Phaser.State {
   map: Phaser.Tilemap;
   layer: Phaser.TilemapLayer;
-  cursors: any;
 
   preload() {
     this.game.load.tilemap(
@@ -24,8 +23,6 @@ class Level extends Phaser.State {
     this.layer.fixedToCamera = false;
     this.layer.position.set(0, this.world.centerY / 2);
     this.layer.resizeWorld();
-
-    this.cursors = this.game.input.keyboard.createCursorKeys();
   }
 }
 
