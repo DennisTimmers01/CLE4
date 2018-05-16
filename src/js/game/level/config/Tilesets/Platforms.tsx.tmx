@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tileset name="Platforms" tilewidth="400" tileheight="146" tilecount="9" columns="0">
+ <grid orientation="orthogonal" width="1" height="1"/>
+ <tile id="4">
+  <image width="70" height="70" source="../Assets/Tiles/grassMid.png"/>
+ </tile>
+ <tile id="5">
+  <image width="70" height="70" source="../Assets/Tiles/door_closedTop.png"/>
+ </tile>
+ <tile id="6">
+  <image width="70" height="70" source="../Assets/Tiles/door_closedMid.png"/>
+ </tile>
+ <tile id="7">
+  <image width="70" height="70" source="../Assets/Items/spikes.png"/>
+ </tile>
+ <tile id="9">
+  <image width="66" height="92" source="../Assets/Player/p1_stand.png"/>
+ </tile>
+ <tile id="10">
+  <image width="48" height="146" source="../Assets/Tiles/hill_large.png"/>
+ </tile>
+ <tile id="11">
+  <image width="48" height="146" source="../Assets/Tiles/hill_largeAlt.png"/>
+ </tile>
+ <tile id="12">
+  <image width="400" height="70" source="../Assets/Tiles/grassFloorBig.png"/>
+ </tile>
+ <tile id="13">
+  <image width="70" height="70" source="../Assets/Tiles/bridge.png"/>
+ </tile>
+</tileset>
