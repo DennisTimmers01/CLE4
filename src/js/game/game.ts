@@ -18,21 +18,14 @@ class Game extends Phaser.Game {
     /**
      * Start the game
      */
-    this.init();
+    this._init();
   }
 
   /**
    * Initiate the game.
    */
-  init(): void {
+  private _init(): void {
     this.state.start('Level');
-  }
-
-  /**
-   * reset the game to its initial state.
-   */
-  restart(): void {
-    this.state.restart();
   }
 }
 
