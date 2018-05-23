@@ -3,6 +3,7 @@ import 'p2';
 import 'phaser';
 
 import Level from './level/Level';
+import Player from './player/player'; 
 
 class Game extends Phaser.Game {
   element: HTMLElement;
@@ -15,6 +16,8 @@ class Game extends Phaser.Game {
      */
     this.state.add('Level', Level, false);
 
+    this.state.add('player', Player, false);
+
     /**
      * Start the game
      */
@@ -26,6 +29,7 @@ class Game extends Phaser.Game {
    */
   private _init(): void {
     this.state.start('Level');
+    this.state.start('player');
   }
 }
 
