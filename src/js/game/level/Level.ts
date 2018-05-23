@@ -16,7 +16,7 @@ class Level extends Phaser.State {
   preload() {
     this.game.load.tilemap(
       'level1',
-      `../../../assets/levels/level1.1.json`,
+      `../../../assets/levels/level${this.currentLevel}.json`,
       null,
       Phaser.Tilemap.TILED_JSON
     );
