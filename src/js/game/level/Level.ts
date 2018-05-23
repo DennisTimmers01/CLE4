@@ -1,5 +1,3 @@
-import 'phaser';
-
 class Level extends Phaser.State {
   private _map: Phaser.Tilemap;
   private _layer: Phaser.TilemapLayer;
@@ -28,7 +26,7 @@ class Level extends Phaser.State {
 
     this.game.load.image(
       'background',
-      '../../../assets/levels/backgroundimg.png'
+      '../../../assets/levels/backgroundimg.jpg'
     );
   }
 
