@@ -1,25 +1,26 @@
 import 'phaser';
 
 class Level extends Phaser.State {
-  map: Phaser.Tilemap;
-  layer: Phaser.TilemapLayer;
-  currentLevel: number;
+  private _map: Phaser.Tilemap;
+  private _layer: Phaser.TilemapLayer;
+  private _currentLevel: number;
 
   constructor() {
     super();
-    this.currentLevel = 1;
+    this._currentLevel = 1;
   }
 
   /**
    * Load initial essets
    */
-  preload() {
+  preload(): void {
     this.game.load.tilemap(
       'level1',
-      `../../../assets/levels/level${this.currentLevel}.json`,
+      `../../../assets/levels/level${this._currentLevel}.json`,
       null,
       Phaser.Tilemap.TILED_JSON
     );
+
     this.game.load.image(
       'tiles',
       `../../../assets/levels/tiles_spritesheet.png`
@@ -34,31 +35,16 @@ class Level extends Phaser.State {
   /**
    * Init level
    */
-  create() {
-    this.createBackground();
-    this.createMap();
-    this.createLayer();
+  create(): void {
+    this._createBackground();
+    this._createMap();
+    this._createLayer();
   }
 
   /**
-   * add tilemap and tile images
+   * Create background for level
    */
-  createMap() {
-    this.map = this.game.add.tilemap(`level${this.currentLevel}`);
-    this.map.addTilesetImage(`level-${this.currentLevel}`, 'tiles');
-  }
-
-  /**
-   * Create layer from tiles
-   */
-  createLayer() {
-    this.layer = this.map.createLayer(`tilelaag${this.currentLevel}`);
-    this.layer.fixedToCamera = false;
-    this.layer.position.set(0, this.world.centerY / 2);
-    this.layer.resizeWorld();
-  }
-
-  createBackground() {
+  private _createBackground(): void {
     this.game.add.tileSprite(
       0,
       0,
@@ -68,12 +54,22 @@ class Level extends Phaser.State {
     );
   }
 
-  nextLevel() {
-    this.currentLevel++;
+  /**
+   * add tilemap and tile images
+   */
+  private _createMap(): void {
+    this._map = this.game.add.tilemap(`level${this._currentLevel}`);
+    this._map.addTilesetImage(`level-${this._currentLevel}`, 'tiles');
   }
 
-  previousLevel() {
-    this.currentLevel--;
+  /**
+   * Create layer from tiles
+   */
+  private _createLayer(): void {
+    this._layer = this._map.createLayer(`tilelaag${this._currentLevel}`);
+    this._layer.fixedToCamera = false;
+    this._layer.position.set(0, this.world.centerY / 2);
+    this._layer.resizeWorld();
   }
 }
 
