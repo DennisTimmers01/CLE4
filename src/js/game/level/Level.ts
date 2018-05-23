@@ -24,12 +24,18 @@ class Level extends Phaser.State {
       'tiles',
       `../../../assets/levels/tiles_spritesheet.png`
     );
+
+    this.game.load.image(
+      'background',
+      '../../../assets/levels/backgroundimg.png'
+    );
   }
 
   /**
    * Init level
    */
   create() {
+    this.createBackground();
     this.createMap();
     this.createLayer();
   }
@@ -50,6 +56,16 @@ class Level extends Phaser.State {
     this.layer.fixedToCamera = false;
     this.layer.position.set(0, this.world.centerY / 2);
     this.layer.resizeWorld();
+  }
+
+  createBackground() {
+    this.game.add.tileSprite(
+      0,
+      0,
+      this.game.width,
+      this.game.height,
+      'background'
+    );
   }
 
   nextLevel() {

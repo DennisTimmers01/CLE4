@@ -8,7 +8,7 @@ class Game extends Phaser.Game {
   element: HTMLElement;
 
   constructor(element: HTMLElement) {
-    super('100%', '100%', Phaser.AUTO, element);
+    super(1280, 735, Phaser.AUTO, element);
 
     /**
      * Add states to the game
