@@ -16,13 +16,13 @@ class Level extends Phaser.State {
   preload() {
     this.game.load.tilemap(
       'level1',
-      `../../../assets/levels/level${this.currentLevel}.json`,
+      `../../../assets/levels/level1.1.json`,
       null,
       Phaser.Tilemap.TILED_JSON
     );
     this.game.load.image(
       'tiles',
-      `../../../assets/levels/tiles-${this.currentLevel}.png`
+      `../../../assets/levels/tiles_spritesheet.png`
     );
   }
 
