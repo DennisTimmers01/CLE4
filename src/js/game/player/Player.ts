@@ -23,7 +23,26 @@ class Player extends Phaser.State {
     this.player.animations.add('right', [5, 6, 7, 8], 10, true);
   }
 
-  update() {}
+  update() {
+    
+		if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
+
+			this.player.body.velocity.x = -150;
+			this.player.animations.play('left');
+    }
+    else if (this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
+			this.player.body.velocity.x = 150;
+			this.player.animations.play('right');
+    }
+    else if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
+			this.player.body.velocity.y = 50;
+			this.player.animations.frame = 4;
+    }
+    else {
+      this.player.animations.frame = 4;
+      this.player.body.velocity.x = 0;
+		}
+  }
 }
 
 export default Player;
