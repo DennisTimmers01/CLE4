@@ -3,7 +3,7 @@ import 'p2';
 import 'phaser';
 
 import Level from './level/Level';
-import Player from './player/player'; 
+import Player from './player/Player';
 
 class Game extends Phaser.Game {
   element: HTMLElement;
