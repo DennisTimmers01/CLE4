@@ -1,3 +1,5 @@
+import Player from '../player/Player';
+
 class Level extends Phaser.State {
   private _map: Phaser.Tilemap;
   private _layer: Phaser.TilemapLayer;
@@ -28,6 +30,8 @@ class Level extends Phaser.State {
       'background',
       '../../../assets/levels/backgroundimg.jpg'
     );
+
+    this.game.state.add('player', Player, false);
   }
 
   /**
@@ -37,6 +41,7 @@ class Level extends Phaser.State {
     this._createBackground();
     this._createMap();
     this._createLayer();
+    this.game.state.start('player', false);
   }
 
   /**

@@ -2,8 +2,7 @@ import 'pixi';
 import 'p2';
 import 'phaser';
 
-import Level from './level/Level';
-import Player from './player/Player';
+import Main from './state/Main';
 
 class Game extends Phaser.Game {
   element: HTMLElement;
@@ -14,9 +13,7 @@ class Game extends Phaser.Game {
     /**
      * Add states to the game
      */
-    this.state.add('Level', Level, false);
-
-    this.state.add('player', Player, false);
+    this.state.add('Main', Main, false);
 
     /**
      * Start the game
@@ -28,8 +25,7 @@ class Game extends Phaser.Game {
    * Initiate the game.
    */
   private _init(): void {
-    this.state.start('Level');
-    this.state.start('player');
+    this.state.start('Main');
   }
 }
 
