@@ -1,8 +1,7 @@
 class Player extends Phaser.State {
-  playerSprite: object;
-  player: Phaser.Sprite;
+  private _player: Phaser.Sprite;
 
-  preload() {
+  preload(): void {
     this.game.load.spritesheet(
       'player',
       '../../../assets/player/sprite.png',
@@ -11,37 +10,34 @@ class Player extends Phaser.State {
     );
   }
 
-  create() {
-    this.player = this.game.add.sprite(32, 32, 'player');
-    this.game.physics.arcade.enable(this.player);
+  create(): void {
+    this._player = this.game.add.sprite(32, 32, 'player');
+    this.game.physics.arcade.enable(this._player);
 
-    this.player.body.bounce.y = 0.2;
-    this.player.body.gravity.y = 300;
-    this.player.body.collideWorldBounce = true;
+    this._player.body.bounce.y = 0.2;
+    this._player.body.gravity.y = 300;
+    this._player.body.collideWorldBounce = true;
 
-    this.player.animations.add('left', [0, 1, 2, 3], 10, true);
-    this.player.animations.add('right', [5, 6, 7, 8], 10, true);
+    this._player.animations.add('left', [0, 1, 2, 3], 10, true);
+    this._player.animations.add('right', [5, 6, 7, 8], 10, true);
   }
 
-  update() {
-    
-		if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
+  update(): void {
+    const { LEFT, RIGHT, SPACEBAR } = Phaser.Keyboard;
 
-			this.player.body.velocity.x = -150;
-			this.player.animations.play('left');
+    if (this.game.input.keyboard.isDown(LEFT)) {
+      this._player.body.velocity.x = -150;
+      this._player.animations.play('left');
+    } else if (this.game.input.keyboard.isDown(RIGHT)) {
+      this._player.body.velocity.x = 150;
+      this._player.animations.play('right');
+    } else if (this.game.input.keyboard.isDown(SPACEBAR)) {
+      this._player.body.velocity.y = 50;
+      this._player.animations.frame = 4;
+    } else {
+      this._player.animations.frame = 4;
+      this._player.body.velocity.x = 0;
     }
-    else if (this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
-			this.player.body.velocity.x = 150;
-			this.player.animations.play('right');
-    }
-    else if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
-			this.player.body.velocity.y = 50;
-			this.player.animations.frame = 4;
-    }
-    else {
-      this.player.animations.frame = 4;
-      this.player.body.velocity.x = 0;
-		}
   }
 }
 
