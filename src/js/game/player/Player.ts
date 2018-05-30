@@ -26,7 +26,7 @@ class Player extends Phaser.State {
   }
 
   update(): void {
-    const { LEFT, RIGHT, SPACEBAR } = Phaser.Keyboard;
+    const { LEFT, RIGHT } = Phaser.Keyboard;
 
     if (this.game.input.keyboard.isDown(LEFT)) {
       this._player.body.velocity.x = -150;
@@ -34,9 +34,6 @@ class Player extends Phaser.State {
     } else if (this.game.input.keyboard.isDown(RIGHT)) {
       this._player.body.velocity.x = 150;
       this._player.animations.play('right');
-    } else if (this.game.input.keyboard.isDown(SPACEBAR)) {
-      this._player.body.velocity.y = 50;
-      this._player.animations.frame = 4;
     } else {
       this._player.animations.frame = 4;
       this._player.body.velocity.x = 0;
