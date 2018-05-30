@@ -7,7 +7,6 @@ class Main extends Phaser.State {
 
   create(): void {
     this.game.state.start('level');
-    console.log('created');
   }
   update(): void {}
 }
