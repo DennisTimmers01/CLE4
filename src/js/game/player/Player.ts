@@ -20,6 +20,8 @@ class Player extends Phaser.State {
 
     this._player.animations.add('left', [0, 1, 2, 3], 10, true);
     this._player.animations.add('right', [5, 6, 7, 8], 10, true);
+
+    this.game.camera.follow(this._player);
   }
 
   update(): void {
