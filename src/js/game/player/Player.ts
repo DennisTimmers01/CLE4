@@ -11,11 +11,11 @@ class Player extends Phaser.State {
   }
 
   create(): void {
-    this._player = this.game.add.sprite(32, this.game.height - 140, 'player');
+    this._player = this.game.add.sprite(32, 32, 'player');
     this.game.physics.arcade.enable(this._player);
 
     this._player.body.bounce.y = 0.2;
-    this._player.body.gravity.y = 0;
+    this._player.body.gravity.y = 200;
     this._player.body.collideWorldBounce = true;
     this._player.scale.set(0.7);
 
