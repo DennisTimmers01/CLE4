@@ -1,5 +1,12 @@
 class Player extends Phaser.State {
   private _player: Phaser.Sprite;
+  private _jumpTimer: number;
+
+  constructor() {
+    super();
+
+    this._jumpTimer = 0;
+  }
 
   preload(): void {
     this.game.load.spritesheet(
@@ -11,7 +18,7 @@ class Player extends Phaser.State {
   }
 
   create(): void {
-    this._player = this.game.add.sprite(32, 32, 'player');
+    this._player = this.game.add.sprite(32, this.game.height - 150, 'player');
     this.game.physics.arcade.enable(this._player);
 
     this._player.body.bounce.y = 0.2;
@@ -26,7 +33,10 @@ class Player extends Phaser.State {
   }
 
   update(): void {
-    const { LEFT, RIGHT } = Phaser.Keyboard;
+    if (this._player.body.y > this.game.height - 140) {
+      this._player.body.y = this.game.height - 140;
+    }
+    const { LEFT, RIGHT, SPACEBAR } = Phaser.Keyboard;
 
     if (this.game.input.keyboard.isDown(LEFT)) {
       this._player.body.velocity.x = -150;
@@ -37,6 +47,14 @@ class Player extends Phaser.State {
     } else {
       this._player.animations.frame = 4;
       this._player.body.velocity.x = 0;
+    }
+
+    if (
+      this.game.input.keyboard.isDown(SPACEBAR) &&
+      this.game.time.now > this._jumpTimer
+    ) {
+      this._player.body.velocity.y = -250;
+      this._jumpTimer = this.game.time.now + 750;
     }
   }
 }
