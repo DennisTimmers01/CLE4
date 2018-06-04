@@ -3,6 +3,7 @@ import 'p2';
 import 'phaser';
 
 import Platform from './environment/platform';
+import Player from './player/Player';
 
 class Game {
   element: HTMLElement;
@@ -10,6 +11,8 @@ class Game {
   platforms: any;
   ground: any;
   ledge: any;
+  player: any;
+  hitPlatform: any;
 
   constructor() {
     this.game = new Phaser.Game(
@@ -38,6 +41,9 @@ class Game {
 
   create() {
     const { add, world } = this.game;
+
+    this.player = new Player();
+
     add.sprite(0, 0, 'sky');
     add.sprite(0, 0, 'star');
 
@@ -47,9 +53,14 @@ class Game {
     Platform.createGround(this.platforms, 0, world.height - 30);
     Platform.createLedge(this.platforms, 400, 400);
     Platform.createLedge(this.platforms, -150, 250);
+
+    this.player.createPlayer(this.game, 'dude');
+    console.log(this.player);
   }
 
-  update() {}
+  update() {
+    this.game.physics.arcade.collide(this.platforms, this.player.player);
+  }
 }
 
 export default Game;
