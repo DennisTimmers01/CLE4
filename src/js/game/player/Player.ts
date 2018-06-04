@@ -2,8 +2,6 @@ class Player {
   player: Phaser.Sprite;
   game: Phaser.Game;
   cursors: any;
-  state: any;
-  jumpState: any;
 
   constructor(game: Phaser.Game) {
     this.game = game;
@@ -25,8 +23,6 @@ class Player {
   }
 
   playerMovement() {
-    this.jumpState = 0;
-
     if (this.cursors.left.isDown) {
       this.player.body.velocity.x = -150;
       this.player.animations.play('left');
@@ -42,7 +38,6 @@ class Player {
 
     if (this.cursors.up.isDown && this.player.body.touching.down) {
       this.player.body.velocity.y = -200;
-      this.jumpState = 1
     }
   }
 }
