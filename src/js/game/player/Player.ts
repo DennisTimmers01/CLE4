@@ -22,11 +22,13 @@ class Player {
 
   private _setPlayerSprite(): void {
     const { sprite, position } = config.player;
+
     this._player = this._game.add.sprite(position.x, position.y, sprite);
   }
 
   private _setPhysics(): void {
     const { gravity, bounce, worldBound } = config.physics;
+
     this._game.physics.arcade.enable(this._player);
     this._player.body.gravity.y = gravity;
     this._player.body.bounce.y = bounce;
@@ -34,25 +36,33 @@ class Player {
   }
 
   private _setAnimation(): void {
+    const LEFT = 'left';
+    const RIGHT = 'right';
     const { frames, frameRate, loop } = config.animation;
-    this._player.animations.add('left', frames.left, frameRate, loop);
-    this._player.animations.add('right', frames.right, frameRate, loop);
+
+    this._player.animations.add(LEFT, frames.left, frameRate, loop);
+    this._player.animations.add(RIGHT, frames.right, frameRate, loop);
   }
 
   playerMovement(): void {
+    const LEFT = 'left';
+    const RIGHT = 'right';
+    const { velocity } = config.movement;
+    const { frames } = config.animation;
+
     if (this._cursors.left.isDown) {
-      this._player.body.velocity.x = -150;
-      this._player.animations.play('left');
+      this._player.body.velocity.x = -velocity.x;
+      this._player.animations.play(LEFT);
     } else if (this._cursors.right.isDown) {
-      this._player.body.velocity.x = 150;
-      this._player.animations.play('right');
+      this._player.body.velocity.x = velocity.x;
+      this._player.animations.play(RIGHT);
     } else {
-      this._player.body.velocity.x = 0;
-      this._player.animations.frame = 4;
+      this._player.body.velocity.x = velocity.default;
+      this._player.animations.frame = frames.default;
     }
 
     if (this._cursors.up.isDown && this._player.body.touching.down) {
-      this._player.body.velocity.y = -200;
+      this._player.body.velocity.y = velocity.jump;
     }
   }
 }
