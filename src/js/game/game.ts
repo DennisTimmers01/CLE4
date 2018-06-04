@@ -36,14 +36,13 @@ class Game {
     load.image('sky', './assets/sky.png');
     load.image('ground', './assets/platform.png');
     load.image('star', './assets/star.png');
-    load.spritesheet('player', '../../assets/player/sprite.png', 32, 48);
+    load.spritesheet('player', '../../assets/player/sprite.png', 64, 128);
   }
 
   create() {
     const { add, world } = this.game;
 
     add.sprite(0, 0, 'sky');
-    add.sprite(0, 0, 'star');
 
     this.platforms = this.game.add.group();
     this.platforms.enableBody = true;
