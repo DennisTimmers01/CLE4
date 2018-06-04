@@ -2,7 +2,7 @@ import 'pixi';
 import 'p2';
 import 'phaser';
 
-import Platform from './environment/platform';
+import Platform from './environment/Platform';
 import Player from './player/Player';
 
 class Game {

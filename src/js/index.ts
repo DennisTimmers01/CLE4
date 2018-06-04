@@ -1,5 +1,5 @@
 import '../css/style.css';
-import Game from './game/game';
+import Game from './game/Game';
 
 const ready = (): Promise<any> =>
   document.readyState === 'interactive' || document.readyState === 'complete'
