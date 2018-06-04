@@ -55,8 +55,6 @@ class Player {
         this.player.animations.frame = 4;
       }
     }
-
-    console.log(this.state);
   }
 }
 
