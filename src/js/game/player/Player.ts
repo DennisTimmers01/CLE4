@@ -1,41 +1,58 @@
+import config from './config';
+
 class Player {
-  player: Phaser.Sprite;
-  game: Phaser.Game;
-  cursors: any;
+  _game: Phaser.Game;
+  _player: Phaser.Sprite;
+  _cursors: Phaser.CursorKeys;
 
   constructor(game: Phaser.Game) {
-    this.game = game;
+    this._game = game;
 
-    this.createPlayer();
+    this._createPlayer();
+
+    this._game.camera.follow(this._player);
+    this._cursors = this._game.input.keyboard.createCursorKeys();
   }
 
-  createPlayer() {
-    this.player = this.game.add.sprite(32, 35, 'player');
-    this.game.physics.arcade.enable(this.player);
-    this.player.body.bounce.y = 0.2;
-    this.player.body.gravity.y = 300;
-    this.player.body.collideWorldBounds = true;
-
-    this.player.animations.add('left', [0, 1, 2, 3], 10, true);
-    this.player.animations.add('right', [5, 6, 7, 8], 10, true);
-    this.cursors = this.game.input.keyboard.createCursorKeys();
-    this.game.camera.follow(this.player);
+  private _createPlayer(): void {
+    this._setPlayerSprite();
+    this._setPhysics();
+    this._setAnimation();
   }
 
-  playerMovement() {
-    if (this.cursors.left.isDown) {
-      this.player.body.velocity.x = -150;
-      this.player.animations.play('left');
-    } else if (this.cursors.right.isDown) {
-      this.player.body.velocity.x = 150;
-      this.player.animations.play('right');
+  private _setPlayerSprite(): void {
+    const { sprite, position } = config.player;
+    this._player = this._game.add.sprite(position.x, position.y, sprite);
+  }
+
+  private _setPhysics(): void {
+    const { gravity, bounce, worldBound } = config.physics;
+    this._game.physics.arcade.enable(this._player);
+    this._player.body.gravity.y = gravity;
+    this._player.body.bounce.y = bounce;
+    this._player.body.collideWorldBounds = worldBound;
+  }
+
+  private _setAnimation(): void {
+    const { frames, frameRate, loop } = config.animation;
+    this._player.animations.add('left', frames.left, frameRate, loop);
+    this._player.animations.add('right', frames.right, frameRate, loop);
+  }
+
+  playerMovement(): void {
+    if (this._cursors.left.isDown) {
+      this._player.body.velocity.x = -150;
+      this._player.animations.play('left');
+    } else if (this._cursors.right.isDown) {
+      this._player.body.velocity.x = 150;
+      this._player.animations.play('right');
     } else {
-      this.player.body.velocity.x = 0;
-      this.player.animations.frame = 4;
+      this._player.body.velocity.x = 0;
+      this._player.animations.frame = 4;
     }
 
-    if (this.cursors.up.isDown && this.player.body.touching.down) {
-      this.player.body.velocity.y = -200;
+    if (this._cursors.up.isDown && this._player.body.touching.down) {
+      this._player.body.velocity.y = -200;
     }
   }
 }
