@@ -22,11 +22,18 @@ class Player {
   }
 
   playerMovement() {
-    this.player.body.velocity.x = 0;
-
+    
     if (this.cursors.left.isDown) {
       this.player.body.velocity.x = -150;
       this.player.animations.play('left');
+    }
+    else if (this.cursors.right.isDown) {
+      this.player.body.velocity.x = 150;
+      this.player.animations.play('right');
+    }
+    else {
+      this.player.body.velocity.x = 0;
+      this.player.animations.frame = 4;
     }
   }
 }
