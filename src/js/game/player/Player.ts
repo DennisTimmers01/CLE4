@@ -44,7 +44,7 @@ class Player {
     this._player.animations.add(RIGHT, frames.right, frameRate, loop);
   }
 
-  playerMovement(): void {
+  public playerMovement(): void {
     const LEFT = 'left';
     const RIGHT = 'right';
     const { velocity } = config.movement;
