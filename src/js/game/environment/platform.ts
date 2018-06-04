@@ -2,14 +2,14 @@ class Platform {
   ground: any;
   ledge: any;
 
-  createLedge(ctx: any, posX: number, posY: number, immovable: boolean = true) {
+  createLedge(ctx: Phaser.Group, posX: number, posY: number) {
     this.ledge = ctx.create(posX, posY, 'ground');
     this.ledge.body.immovable = true;
     return this.ledge;
   }
 
   createGround(
-    ctx: any,
+    ctx: Phaser.Group,
     posX: number,
     posY: number,
     immovable: boolean = true

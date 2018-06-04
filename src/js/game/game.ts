@@ -36,13 +36,11 @@ class Game {
     load.image('sky', './assets/sky.png');
     load.image('ground', './assets/platform.png');
     load.image('star', './assets/star.png');
-    load.spritesheet('dude', './assets/dude.png', 32, 48);
+    load.spritesheet('player', '../../assets/player/sprite.png', 32, 48);
   }
 
   create() {
     const { add, world } = this.game;
-
-    this.player = new Player();
 
     add.sprite(0, 0, 'sky');
     add.sprite(0, 0, 'star');
@@ -51,15 +49,16 @@ class Game {
     this.platforms.enableBody = true;
 
     Platform.createGround(this.platforms, 0, world.height - 30);
+
     Platform.createLedge(this.platforms, 400, 400);
     Platform.createLedge(this.platforms, -150, 250);
-
-    this.player.createPlayer(this.game, 'dude');
-    console.log(this.player);
+    Platform.createLedge(this.platforms, -150, 250);
+    this.player = new Player(this.game);
   }
 
   update() {
     this.game.physics.arcade.collide(this.platforms, this.player.player);
+    this.player.playerMovement();
   }
 }
 
