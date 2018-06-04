@@ -2,6 +2,8 @@ class Player {
   player: Phaser.Sprite;
   game: Phaser.Game;
   cursors: any;
+  state: any;
+  jumpState: any;
 
   constructor(game: Phaser.Game) {
     this.game = game;
@@ -22,19 +24,39 @@ class Player {
   }
 
   playerMovement() {
-    
+    this.jumpState = 0;
+
     if (this.cursors.left.isDown) {
       this.player.body.velocity.x = -150;
       this.player.animations.play('left');
+      this.state = 0;
     }
     else if (this.cursors.right.isDown) {
       this.player.body.velocity.x = 150;
       this.player.animations.play('right');
+      this.state = 1;
     }
     else {
       this.player.body.velocity.x = 0;
       this.player.animations.frame = 4;
+      this.state = 2;
     }
+
+    if (this.cursors.up.isDown && this.player.body.touching.down) {
+      this.player.body.velocity.y = -200;
+      this.jumpState = 1
+      if (this.state = 0) {
+        this.player.animations.frame = 5;
+      } 
+      else if (this.state = 1) {
+        this.player.animations.frame = 3;
+      }
+      else {
+        this.player.animations.frame = 4;
+      }
+    }
+
+    console.log(this.state);
   }
 }
 
