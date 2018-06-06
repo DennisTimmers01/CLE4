@@ -4,10 +4,12 @@ import Level from '../level/Level';
 class Main extends Phaser.State {
   _platforms: Level;
   _player: Player;
+  _letters: any;
 
   preload(): void {
     const { load } = this.game;
-    load.image('sky', './assets/sky.png');
+    load.image('e', './assets/e.png');
+    load.image('p', './assets/p.png');
     load.image('skynew', './assets/skynew.png');
     load.image('ground', './assets/platform.png');
     load.image('star', './assets/star.png');

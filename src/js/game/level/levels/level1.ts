@@ -1,4 +1,4 @@
-const level1 = [
+const platforms_level1 = [
   {
     x: 400,
     y: 440
@@ -6,10 +6,6 @@ const level1 = [
   {
     x: -150,
     y: 300
-  },
-  {
-    x: -150,
-    y: 160
   },
   {
     x: 400,
@@ -38,7 +34,20 @@ const level1 = [
   {
     x: 1200,
     y: 968
+  },
+];
+
+const letters_level1 = [ 
+  {
+    x: 1200,
+    y: 968,
+    name: 'e'
+  },
+  {
+    x: 1200,
+    y: 868,
+    name: 'p'
   }
 ];
 
-export default level1;
+export {platforms_level1, letters_level1};
