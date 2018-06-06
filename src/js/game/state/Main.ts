@@ -8,6 +8,7 @@ class Main extends Phaser.State {
   preload(): void {
     const { load } = this.game;
     load.image('sky', './assets/sky.png');
+    load.image('skynew', './assets/skynew.png');
     load.image('ground', './assets/platform.png');
     load.image('star', './assets/star.png');
     load.spritesheet('player', '../../assets/player/sprite.png', 64, 128);
@@ -16,9 +17,8 @@ class Main extends Phaser.State {
   create(): void {
     const { add, world } = this.game;
 
-    world.setBounds(0, 0, 1600, 600);
-    add.sprite(0, 0, 'sky');
-    add.sprite(800, 0, 'sky');
+    world.setBounds(0, 0, 1600, 1000);
+    add.sprite(0, 0, 'skynew');
 
     this._platforms = new Level(this.game);
     this._player = new Player(this.game);

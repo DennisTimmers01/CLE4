@@ -41,7 +41,7 @@ const config: playerConfig = {
   },
   physics: {
     gravity: 300,
-    bounce: 0.2,
+    bounce: 0.4,
     worldBound: true
   },
   player: {
