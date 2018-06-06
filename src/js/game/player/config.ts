@@ -34,7 +34,7 @@ const config: playerConfig = {
     frames: {
       left: [0, 1, 2, 3],
       right: [5, 6, 7, 8],
-      default: 0
+      default: 4
     },
     frameRate: 10,
     loop: true
@@ -55,7 +55,7 @@ const config: playerConfig = {
     velocity: {
       x: 150,
       default: 0,
-      jump: -200
+      jump: -300
     }
   }
 };
