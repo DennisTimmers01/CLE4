@@ -6,11 +6,11 @@ class Main extends Phaser.State {
   _player: Player;
   _letters: any;
   _score: number;
+  _collectedLetter: Array<string>;
 
   constructor() {
     super();
-
-    this._score = null;
+    this._collectedLetter = [];
   }
 
   preload(): void {
@@ -52,7 +52,7 @@ class Main extends Phaser.State {
 
   private _handleLetterPickup() {
     this._platforms._letter.kill();
-    this._score++;
+    this._collectedLetter.push(this._platforms._letter.key);
   }
 }
 
