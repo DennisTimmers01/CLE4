@@ -39,14 +39,29 @@ const platforms_level1 = [
 
 const letters_level1 = [ 
   {
-    x: 1200,
-    y: 968,
+    x: 900,
+    y: 868,
+    name: 'o'
+  },
+  {
+    x: 1000,
+    y: 868,
+    name: 'p'
+  },
+  {
+    x: 1100,
+    y: 868,
     name: 'e'
   },
   {
     x: 1200,
     y: 868,
-    name: 'p'
+    name: 'n'
+  },
+  {
+    x: 1300,
+    y: 868,
+    name: 'n'
   }
 ];
 

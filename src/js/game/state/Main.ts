@@ -7,6 +7,7 @@ class Main extends Phaser.State {
   _letters: any;
   _score: number;
   _collectedLetter: Array<string>;
+  _collectedLetterText: any;
 
   constructor() {
     super();
@@ -17,6 +18,8 @@ class Main extends Phaser.State {
     const { load } = this.game;
     load.image('e', './assets/e.png');
     load.image('p', './assets/p.png');
+    load.image('n', './assets/n.png');
+    load.image('o', './assets/o.png');
     load.image('skynew', './assets/skynew.png');
     load.image('ground', './assets/platform.png');
     load.image('star', './assets/star.png');
@@ -31,6 +34,8 @@ class Main extends Phaser.State {
 
     this._platforms = new Level(this.game);
     this._player = new Player(this.game);
+
+    this._collectedLetterText = this.game.add.text(16, 16, 'score: 0');
   }
 
   update(): void {
@@ -41,7 +46,7 @@ class Main extends Phaser.State {
 
     this.game.physics.arcade.overlap(
       this._player._player,
-      this._platforms._letter,
+      this._platforms._letters,
       this._handleLetterPickup,
       null,
       this
@@ -51,8 +56,9 @@ class Main extends Phaser.State {
   }
 
   private _handleLetterPickup() {
-    this._platforms._letter.kill();
+    this._platforms._letters.kill();
     this._collectedLetter.push(this._platforms._letter.key);
+    console.log(this._platforms._letter.key);
   }
 }
 
