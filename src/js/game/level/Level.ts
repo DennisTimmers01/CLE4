@@ -16,10 +16,9 @@ class Level {
     this._generateLevel();
   }
 
-  private _createLedge(x: number, y: number): object {
+  private _createLedge(x: number, y: number): void {
     this._ledge = this._platforms.create(x, y, 'ground');
     this._ledge.body.immovable = true;
-    return this._ledge;
   }
 
   private _generateLevel() {
