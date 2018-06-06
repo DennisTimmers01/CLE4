@@ -26,10 +26,9 @@ class Level {
     this._ledge.body.immovable = true;
   }
 
-  private _createLetter(x: number, y: number, name: string): object {
+  private _createLetter(x: number, y: number, name: string): void {
     this._letter = this._letters.create(x, y, name);
     this._letter.body.immovable = true;
-    return this._letter;
   }
 
   private _generateLevel() {
