@@ -1,4 +1,4 @@
-import {platforms_level1, letters_level1} from './levels/level1';
+import { platforms_level1, letters_level1 } from './levels/level1';
 
 class Level {
   _game: Phaser.Game;
@@ -33,7 +33,9 @@ class Level {
 
   private _generateLevel() {
     platforms_level1.map(platform => this._createLedge(platform.x, platform.y));
-    letters_level1.map(letters => this._createLetter(letters.x, letters.y, letters.name));
+    letters_level1.map(letters =>
+      this._createLetter(letters.x, letters.y, letters.name)
+    );
   }
 }
 

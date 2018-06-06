@@ -8,7 +8,7 @@ class Game extends Phaser.Game {
   element: HTMLElement;
 
   constructor(_element: HTMLElement) {
-    super(800, 600, Phaser.AUTO, _element);
+    super(1280, 720, Phaser.AUTO, _element);
 
     this.state.add('main', Main);
 

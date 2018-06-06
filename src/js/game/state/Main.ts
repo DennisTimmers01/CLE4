@@ -5,6 +5,13 @@ class Main extends Phaser.State {
   _platforms: Level;
   _player: Player;
   _letters: any;
+  _score: number;
+
+  constructor() {
+    super();
+
+    this._score = null;
+  }
 
   preload(): void {
     const { load } = this.game;
@@ -31,7 +38,21 @@ class Main extends Phaser.State {
       this._platforms._platforms,
       this._player._player
     );
+
+    this.game.physics.arcade.overlap(
+      this._player._player,
+      this._platforms._letter,
+      this._handleLetterPickup,
+      null,
+      this
+    );
+
     this._player.playerMovement();
+  }
+
+  private _handleLetterPickup() {
+    this._platforms._letter.kill();
+    this._score++;
   }
 }
 
