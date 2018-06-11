@@ -48,7 +48,7 @@ const config: playerConfig = {
     sprite: 'player',
     position: {
       x: 32,
-      y: 32
+      y: 750
     }
   },
   movement: {
