@@ -9,8 +9,10 @@ const ready = (): Promise<any> =>
       );
 
 const main = (): void => {
+  document.querySelector(".mainMenu").classList.add('hidden');
   const element: HTMLElement = document.querySelector('[data-module="Game"]');
   new Game(element);
 };
 
-ready().then(main);
+var startbtn = document.querySelector(".start");
+startbtn.addEventListener("click", main);
