@@ -1,4 +1,4 @@
-import { platforms_level1, letters_level1 } from './levels/level1';
+import { floor_level1, platform_level1, letters_level1 } from './levels/level1';
 
 class Level {
   _game: Phaser.Game;
@@ -26,13 +26,19 @@ class Level {
     this._ledge.body.immovable = true;
   }
 
+  private _createPlatform(x: number, y: number): void {
+    this._ledge = this._platforms.create(x, y, 'platform');
+    this._ledge.body.immovable = true;
+  }
+
   private _createLetter(x: number, y: number, name: string): void {
     this._letter = this._letters.create(x, y, name);
     this._letter.body.immovable = true;
   }
 
   private _generateLevel() {
-    platforms_level1.map(platform => this._createLedge(platform.x, platform.y));
+    floor_level1.map(floor => this._createLedge(floor.x, floor.y));
+    platform_level1.map(platform => this._createPlatform(platform.x, platform.y));
     letters_level1.map(letters =>
       this._createLetter(letters.x, letters.y, letters.name)
     );

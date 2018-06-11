@@ -22,6 +22,7 @@ class Main extends Phaser.State {
     load.image('o', './assets/o.png');
     load.image('skynew', './assets/skynew.png');
     load.image('ground', './assets/platform.png');
+    load.image('platform', './assets/platformHalf.png');
     load.image('star', './assets/star.png');
     load.spritesheet('player', '../../assets/player/sprite.png', 64, 128);
   }
