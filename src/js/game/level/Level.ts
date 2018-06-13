@@ -1,4 +1,4 @@
-import { floor_level1, platform_level1, deaths_level1 } from './levels/level1';
+import { level1 } from '../config/levelConfig';
 
 class Level {
   _game: Phaser.Game;
@@ -37,13 +37,11 @@ class Level {
   }
 
   private _generateLevel() {
-    floor_level1.map(floor => this._createLedge(floor.x, floor.y));
-    platform_level1.map(platform =>
-      this._createPlatform(platform.x, platform.y)
-    );
-    deaths_level1.map(deaths =>
-      this._createDeath(deaths.x, deaths.y, deaths.name)
-    );
+    const { floor, platforms, traps } = level1;
+
+    floor.map(floor => this._createLedge(floor.x, floor.y));
+    platforms.map(platform => this._createPlatform(platform.x, platform.y));
+    traps.map(deaths => this._createDeath(deaths.x, deaths.y, deaths.name));
   }
 }
 export default Level;

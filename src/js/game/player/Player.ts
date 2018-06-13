@@ -1,4 +1,4 @@
-import config from './config';
+import config from '../config/playerConfig';
 
 class Player {
   _game: Phaser.Game;
@@ -22,7 +22,6 @@ class Player {
 
   private _setPlayerSprite(): void {
     const { sprite, position } = config.player;
-
     this._player = this._game.add.sprite(position.x, position.y, sprite);
   }
 
