@@ -24,9 +24,12 @@ const level1 = {
     { x: 70, y: 400, name: 'n' },
     { x: 1170, y: 270, name: 'p' },
     { x: 670, y: 600, name: 'o' },
-    { x: 1300, y: 800, name: 'e' }
+    { x: 1300, y: 800, name: 'e' },
   ],
-  traps: [{ x: 1200, y: 968, name: 'lava' }]
+  traps: [
+    { x: 1200, y: 968, name: 'lava' },
+    { x: 400, y: 260, name: 'spikes' },
+]
 };
 
 export { level1 };

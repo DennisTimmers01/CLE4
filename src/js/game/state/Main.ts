@@ -23,8 +23,9 @@ class Main extends Phaser.State {
     load.image('skynew', './assets/skynew.png');
     load.image('ground', './assets/platform.png');
     load.image('platform', './assets/platformHalf.png');
-    load.image('lava', './assets/lava.png');
-    load.image('star', './assets/star.png');
+    load.image('lava', './assets/lavafinal.png');
+    load.image('spikes', './assets/spikes.png');
+    load.image('door', './assets/door.png');
     load.spritesheet('player', '../../assets/player/sprite.png', 64, 128);
   }
 
@@ -33,6 +34,7 @@ class Main extends Phaser.State {
 
     world.setBounds(0, 0, 1600, 1000);
     add.sprite(0, 0, 'skynew');
+    add.sprite(1500, 858, 'door');
 
     this._platforms = new Level(this.game);
     this._deaths = new Level(this.game);
