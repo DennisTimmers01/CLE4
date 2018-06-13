@@ -5,8 +5,6 @@ class Level {
   _platforms: Phaser.Group;
   _deathGroup: Phaser.Group;
   _currentLevel: number;
-  _death: any;
-  _ledge: any;
   _object: any;
 
   constructor(game: Phaser.Game) {
