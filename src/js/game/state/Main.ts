@@ -49,7 +49,12 @@ class Main extends Phaser.State {
       this._player._player
     );
 
-    if (this.game.physics.arcade.collide(this._deaths._deathGroup, this._player._player)) {
+    if (
+      this.game.physics.arcade.collide(
+        this._deaths._deathGroup,
+        this._player._player
+      )
+    ) {
       this.game.state.restart();
     }
 
