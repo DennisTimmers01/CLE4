@@ -2,7 +2,7 @@ const floor_level1 = [
   { x: 0, y: 968 },
   { x: 400, y: 968 },
   { x: 800, y: 968 },
-  { x: 1450, y: 968 },
+  { x: 1450, y: 968 }
 ];
 
 const platform_level1 = [
@@ -18,18 +18,16 @@ const platform_level1 = [
   { x: 1400, y: 400 },
   { x: 1400, y: 600 },
   { x: 1200, y: 600 },
-  { x: 600, y: 660 },
+  { x: 600, y: 660 }
 ];
 
-const letters_level1 = [ 
-  { x: 70,   y: 400, name: 'n' },
+const letters_level1 = [
+  { x: 70, y: 400, name: 'n' },
   { x: 1170, y: 270, name: 'p' },
   { x: 670, y: 600, name: 'o' },
-  { x: 1300, y: 800, name: 'e' },
+  { x: 1300, y: 800, name: 'e' }
 ];
 
-const deaths_level1 = [ 
-  { x: 1200, y: 968 , name: 'lava' },
-];
+const deaths_level1 = [{ x: 1200, y: 968, name: 'lava' }];
 
-export {floor_level1, platform_level1, letters_level1, deaths_level1};
+export { floor_level1, platform_level1, letters_level1, deaths_level1 };

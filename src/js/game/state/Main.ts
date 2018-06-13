@@ -1,18 +1,17 @@
 import Player from '../player/Player';
 import Level from '../level/Level';
+import Letter from '../letter/Letter';
 
 class Main extends Phaser.State {
+  _letter: Letter;
   _platforms: Level;
   _deaths: Level;
   _player: Player;
-  _letters: Level;
   _score: number;
-  _collectedLetter: Array<string>;
   _collectedLetterText: any;
 
   constructor() {
     super();
-    this._collectedLetter = [];
   }
 
   preload(): void {
@@ -36,16 +35,16 @@ class Main extends Phaser.State {
     add.sprite(0, 0, 'skynew');
 
     this._platforms = new Level(this.game);
-    this._letters = new Level(this.game);
     this._deaths = new Level(this.game);
     this._player = new Player(this.game);
+    this._letter = new Letter(this.game, this._player._player);
 
     this._collectedLetterText = this.game.add.text(16, 16, 'score: 0');
   }
 
   update(): void {
     this.game.physics.arcade.collide(
-      this._platforms._platformGroup,
+      this._platforms._platforms,
       this._player._player
     );
 
@@ -60,19 +59,13 @@ class Main extends Phaser.State {
 
     this.game.physics.arcade.overlap(
       this._player._player,
-      this._platforms._letterGroup,
-      this._handleLetterPickup,
+      this._letter._letters,
+      this._letter.killLetter,
       null,
       this
     );
 
     this._player.playerMovement();
-  }
-
-  private _handleLetterPickup() {
-    this._platforms._letter.kill();
-    this._collectedLetter.push(this._platforms._letter.key);
-    console.log(this._platforms._letter.key);
   }
 }
 
