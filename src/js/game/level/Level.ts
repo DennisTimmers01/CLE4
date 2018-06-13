@@ -7,6 +7,7 @@ class Level {
   _currentLevel: number;
   _death: any;
   _ledge: any;
+  _object: any;
 
   constructor(game: Phaser.Game) {
     this._game = game;
@@ -21,27 +22,28 @@ class Level {
     this._generateLevel();
   }
 
-  private _createLedge(x: number, y: number): void {
-    this._ledge = this._platforms.create(x, y, 'ground');
-    this._ledge.body.immovable = true;
-  }
-
-  private _createPlatform(x: number, y: number): void {
-    this._ledge = this._platforms.create(x, y, 'platform');
-    this._ledge.body.immovable = true;
-  }
-
-  private _createDeath(x: number, y: number, name: string): void {
-    this._death = this._deathGroup.create(x, y, name);
-    this._death.body.immovable = true;
+  private _createObject(
+    group: Phaser.Group,
+    x: number,
+    y: number,
+    name: string
+  ) {
+    this._object = group.create(x, y, name);
+    this._object.body.immovable = true;
   }
 
   private _generateLevel() {
     const { floor, platforms, traps } = level1;
 
-    floor.map(floor => this._createLedge(floor.x, floor.y));
-    platforms.map(platform => this._createPlatform(platform.x, platform.y));
-    traps.map(deaths => this._createDeath(deaths.x, deaths.y, deaths.name));
+    floor.map(floor =>
+      this._createObject(this._platforms, floor.x, floor.y, 'ground')
+    );
+    platforms.map(platform =>
+      this._createObject(this._platforms, platform.x, platform.y, 'platform')
+    );
+    traps.map(trap =>
+      this._createObject(this._deathGroup, trap.x, trap.y, trap.name)
+    );
   }
 }
 export default Level;
