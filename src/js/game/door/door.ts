@@ -28,13 +28,13 @@ class Door {
   }
 
   public enterDoor(_player: object, _singleDoor: any) {
-    var answser = prompt("Please enter your name:", "");
+    var answser = prompt("Please enter the name:", "");
     if (answser == "open") {
         alert("Correct");
         this.game.state.restart();
     }
     else {
-        this.game.state.restart();
+        alert("Wrong answer, try again!")
     }
   }
 }

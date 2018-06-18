@@ -30,7 +30,6 @@ class Letter {
   public killLetter(_player: object, _singleLetter: any) {
     _singleLetter.kill();
     this._letterArray.push(_singleLetter.key);
-    console.log(this._letterArray)
   }
 }
 
