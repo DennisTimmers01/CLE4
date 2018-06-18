@@ -10,6 +10,7 @@ class Letter {
   constructor(game: Phaser.Game, player: any) {
     this._game = game;
     this._player = player;
+    this._letterArray = [];
 
     this._letters = this._game.add.group();
     this._letters.enableBody = true;
@@ -28,6 +29,8 @@ class Letter {
 
   public killLetter(_player: object, _singleLetter: any) {
     _singleLetter.kill();
+    this._letterArray.push(_singleLetter.key);
+    console.log(this._letterArray)
   }
 }
 
