@@ -28,9 +28,9 @@ class Door {
   }
 
   public enterDoor(_player: object, _singleDoor: any) {
-    var answser = prompt("Please enter the name:", "");
+    var answser = prompt("Please enter the collected word:", "");
     if (answser == "open") {
-        alert("Correct");
+        alert("That is the correct answer!");
         this.game.state.restart();
     }
     else {
