@@ -29,7 +29,8 @@ class Door {
 
   public enterDoor(_player: object, _singleDoor: any) {
     var answser = prompt("Please enter the collected word:", "");
-    if (answser == "open") {
+    const finalAnswser = answser.toLowerCase();
+    if (finalAnswser == "open") {
         alert("That is the correct answer!");
         this.game.state.restart();
     }
