@@ -31,7 +31,7 @@ class Main extends Phaser.State {
     load.image('lava', './assets/lavafinal.png');
     load.image('spikes', './assets/spikes.png');
     load.image('door', './assets/door.png');
-    load.spritesheet('player', '../../assets/player/sprite.png', 64, 128);
+    load.spritesheet('player', './../../assets/player/sprite.png', 64, 128);
     load.spritesheet('quitBtn', './assets/ui/quitbtn.png', 651, 135);
     load.spritesheet('resumeBtn', './assets/ui/resumebtn.png', 651, 135);
     load.spritesheet('hamburgerBtn', './assets/ui/hamburgerbtn.png', 60, 60);
