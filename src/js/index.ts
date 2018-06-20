@@ -14,7 +14,7 @@ const main = (): void => {
   new Game(element);
 };
 
-ready().then(main);
+//ready().then(main);
 
-// var startbtn = document.querySelector(".start");
-// startbtn.addEventListener("click", main);
+var startbtn = document.querySelector(".start");
+startbtn.addEventListener("click", main);

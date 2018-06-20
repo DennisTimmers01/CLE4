@@ -2,6 +2,7 @@ import Player from '../player/Player';
 import Level from '../level/Level';
 import Letter from '../letter/Letter';
 import Door from '../door/door';
+import Ui from '../UI/ui';
 
 class Main extends Phaser.State {
   _letter: Letter;
@@ -12,6 +13,7 @@ class Main extends Phaser.State {
   _score: number;
   _collectedLetterText: any;
   _letterArray: Array<string>;
+  _ui: any;
 
   constructor() {
     super();
@@ -30,6 +32,10 @@ class Main extends Phaser.State {
     load.image('spikes', './assets/spikes.png');
     load.image('door', './assets/door.png');
     load.spritesheet('player', '../../assets/player/sprite.png', 64, 128);
+    load.spritesheet('quitBtn', './assets/ui/quitbtn.png', 651, 135);
+    load.spritesheet('resumeBtn', './assets/ui/resumebtn.png', 651, 135);
+    load.spritesheet('hamburgerBtn', './assets/ui/hamburgerbtn.png', 60, 60);
+    load.spritesheet('pauseTxt', './assets/ui/pausetxt.png', 651, 135);
   }
 
   create(): void {
@@ -43,10 +49,15 @@ class Main extends Phaser.State {
     this._player = new Player(this.game);
     this._letter = new Letter(this.game, this._player._player);
     this._door = new Door(this.game, this._player._player);
+    this._ui = new Ui(this.game);
 
     this._letterArray = []; 
 
-    this._collectedLetterText = this.game.add.text(16, 16, 'score: 0');
+    this._collectedLetterText = this.game.add.text(16, 16, 'Collected Letters:');
+    this._collectedLetterText.fixedToCamera = true;
+
+    this._ui.displayUi();
+    
   }
 
   update(): void {
