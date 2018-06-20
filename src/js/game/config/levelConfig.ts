@@ -29,6 +29,7 @@ const level1 = {
   traps: [
     { x: 1200, y: 968, name: 'lava' },
     { x: 400, y: 260, name: 'spikes' },
+    { x: 1225, y: 260, name: 'spikes' },
   ],
   door: [
     { x: 1500, y: 858, name: 'door' },

@@ -53,7 +53,7 @@ class Main extends Phaser.State {
 
     this._letterArray = []; 
 
-    this._collectedLetterText = this.game.add.text(16, 16, 'Collected Letters:');
+    this._collectedLetterText = this.game.add.text(16, 16, `Collected Letters: ${this._letterArray}` );
     this._collectedLetterText.fixedToCamera = true;
 
     this._ui.displayUi();
