@@ -51,13 +51,16 @@ class Main extends Phaser.State {
     this._door = new Door(this.game, this._player._player);
     this._ui = new Ui(this.game);
 
-    this._letterArray = []; 
+    this._letterArray = [];
 
-    this._collectedLetterText = this.game.add.text(16, 16, `Collected Letters: ${this._letterArray}` );
+    this._collectedLetterText = this.game.add.text(
+      16,
+      16,
+      `Collected Letters: ${this._letterArray}`
+    );
     this._collectedLetterText.fixedToCamera = true;
 
     this._ui.displayUi();
-    
   }
 
   update(): void {
@@ -82,7 +85,7 @@ class Main extends Phaser.State {
       null,
       this
     );
-    
+
     if (this._letterArray.length == 4) {
       this.game.physics.arcade.overlap(
         this._player._player,
@@ -92,7 +95,9 @@ class Main extends Phaser.State {
         this
       );
     }
-
+    this._collectedLetterText.setText(
+      `Collected Letters: ${this._letterArray}`
+    );
     this._player.playerMovement();
   }
 }
