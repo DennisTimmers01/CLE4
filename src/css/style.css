@@ -2,3 +2,30 @@ body {
   padding: 0;
   margin: 0;
 }
+
+.hidden {
+  display: none;
+}
+
+.container {
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
+.menu {
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
+.start {
+  position: absolute;
+  top: 350px;
+  left: 490px;
+}
+
+[data-module='Game'] {
+  height: 100vh;
+  width: 100vw;
+}

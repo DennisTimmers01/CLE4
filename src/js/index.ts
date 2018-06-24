@@ -1,5 +1,5 @@
 import '../css/style.css';
-import Game from './game/game';
+import Game from './game/Game';
 
 const ready = (): Promise<any> =>
   document.readyState === 'interactive' || document.readyState === 'complete'
@@ -9,8 +9,12 @@ const ready = (): Promise<any> =>
       );
 
 const main = (): void => {
+  document.querySelector('.mainMenu').classList.add('hidden');
   const element: HTMLElement = document.querySelector('[data-module="Game"]');
-  const game: Game = new Game();
+  new Game(element);
 };
 
-ready().then(main);
+//ready().then(main);
+
+var startbtn = document.querySelector(".start");
+startbtn.addEventListener("click", main);
